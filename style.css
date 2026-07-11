@@ -157,6 +157,8 @@ h1 {
   gap: 10px;
 }
 
+.signup-row[hidden] { display: none; }
+
 .signup input[type="email"] {
   font-family: inherit;
   font-size: 16px;
