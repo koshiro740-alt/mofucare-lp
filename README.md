@@ -2,7 +2,7 @@
 
 「モフケア」— やさしいセルフケア習慣アプリ(iOS)の事前登録ランディングページ。
 
-公開URL: https://koshiro740-alt.github.io/mofucare-lp/
+公開URL: https://mofucare.pages.dev/ （Cloudflare Pages・mainブランチに push すると自動デプロイ）
 
 ## 構成
 
