@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>モフケア — がんばらない日も、そばにいるよ。</title>
-  <meta name="description" content="自分をお世話すると、もふもふの相棒「モフ」が育つ。やさしいセルフケア習慣アプリ(iOS)。いま事前登録うけつけ中。">
-  <meta name="theme-color" content="#FFFDF7">
+  <title>モフケア — モフのごはんは、あなたのセルフケア。</title>
+  <meta name="description" content="じぶんをお世話する育成アプリ(iOS)。お水をのむ、のびをする。あなたのセルフケアで、もふもふの相棒「モフ」が育ちます。いま事前登録うけつけ中。">
+  <meta name="theme-color" content="#DF8474">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="モフケア — がんばらない日も、そばにいるよ。">
-  <meta property="og:description" content="自分をお世話すると、もふもふの相棒「モフ」が育つ。やさしいセルフケア習慣アプリ(iOS)。いま事前登録うけつけ中。">
+  <meta property="og:title" content="モフケア — モフのごはんは、あなたのセルフケア。">
+  <meta property="og:description" content="じぶんをお世話する育成アプリ(iOS)。あなたのセルフケアで、もふもふの相棒「モフ」が育ちます。いま事前登録うけつけ中。">
   <meta property="og:url" content="https://mofucare.pages.dev/">
   <meta property="og:image" content="https://mofucare.pages.dev/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,33 +21,44 @@
 </head>
 <body>
 
-  <!-- ヒーロー -->
+  <!-- ヒーロー(コーラル) -->
   <header class="hero">
-    <p class="brand">モフケア</p>
     <div class="hero-inner">
-      <div class="hero-text">
-        <p class="eyebrow">やさしいセルフケア習慣アプリ(iOS)・リリース準備中</p>
-        <h1 id="headline">がんばらない日も、<br>そばにいるよ。</h1>
-        <p class="lead">お水をのむ。のびをする。じぶんへの小さなお世話で、もふもふの相棒「モフ」がすこしずつ育ちます。</p>
+      <div class="badge-row">
+        <span class="badge">じぶんをお世話する、育成アプリ</span>
+        <span class="status">iOS・じゅんび中</span>
       </div>
-      <div class="hero-mofu">
-        <div class="fluff fluff-1" aria-hidden="true"></div>
-        <div class="fluff fluff-2" aria-hidden="true"></div>
-        <div class="fluff fluff-3" aria-hidden="true"></div>
-        <img src="assets/mofu_hero.png" alt="もふもふの相棒、モフ" width="280" height="312" class="breathing">
-      </div>
-    </div>
 
-    <form class="signup" data-signup>
-      <p class="signup-title">リリースしたら、そっとお知らせします</p>
-      <div class="signup-row">
-        <label class="visually-hidden" for="email-1">メールアドレス</label>
-        <input id="email-1" type="email" name="email" placeholder="メールアドレス" autocomplete="email" required>
-        <button type="submit">やさしくお知らせを受けとる</button>
+      <h1 id="headline">モフのごはんは、<br><em>あなたのセルフケア</em>。</h1>
+
+      <div class="causal">
+        <span class="chip">✓ お水をのむ</span>
+        <div class="strip">
+          <img class="g1" src="assets/g1_big.png" alt="たまご">
+          <span class="arrow" aria-hidden="true">→</span>
+          <img class="g2" src="assets/g2_big.png" alt="ちびモフ">
+          <span class="arrow" aria-hidden="true">→</span>
+          <div class="g4-wrap">
+            <p class="bubble">きみの おかげだよ</p>
+            <img class="g4 breathing" src="assets/g4_big.png" alt="おとなモフ">
+          </div>
+        </div>
       </div>
-      <p class="signup-note">メールはリリースのお知らせにだけ使います。</p>
-      <p class="signup-status" role="status" aria-live="polite"></p>
-    </form>
+
+      <form class="signup" data-signup>
+        <p class="signup-title">リリースしたら、そっとお知らせします</p>
+        <div class="signup-row">
+          <label class="visually-hidden" for="email-1">メールアドレス</label>
+          <input id="email-1" type="email" name="email" placeholder="メールアドレス" autocomplete="email" required>
+          <button type="submit">やさしくお知らせを受けとる</button>
+        </div>
+        <p class="signup-note">メールはリリースのお知らせにだけ使います。</p>
+        <p class="signup-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="fluff" style="width:18px;height:18px;left:8%;top:30%" aria-hidden="true"></div>
+    <div class="fluff" style="width:12px;height:12px;right:10%;top:18%;animation-delay:-3s" aria-hidden="true"></div>
+    <p class="seal" aria-hidden="true">モフケア</p>
   </header>
 
   <!-- できること -->
@@ -58,26 +69,26 @@
       <article class="feature">
         <div class="mock mock-day">
           <img class="mock-room" src="assets/room_day.jpg" alt="" width="480" height="860">
-          <img class="mock-mofu" src="assets/mofu_sparkle.png" alt="" width="110" height="123">
+          <img class="mock-mofu" src="assets/mofu_sparkle.png" alt="">
           <ul class="care-chips">
             <li class="done"><span class="check" aria-hidden="true">✓</span>お水をのむ</li>
-            <li>のびをする</li>
+            <li class="done"><span class="check" aria-hidden="true">✓</span>のびをする</li>
             <li>ふかく呼吸する</li>
           </ul>
         </div>
         <div class="feature-text">
-          <h3>じぶんへの、小さなお世話</h3>
-          <p>お水をのむ、のびをする。できた分だけでだいじょうぶ。お世話するたび、モフがよろこんでくれます。</p>
+          <h3>お世話は、タップするだけ</h3>
+          <p>1日ぶんのケアは、ぜんぶやっても1分ちょっと。できなかった日があっても、モフは責めません。</p>
         </div>
       </article>
 
       <article class="feature">
         <div class="mock mock-night">
           <div class="stars" aria-hidden="true"></div>
-          <img class="mock-mofu-night" src="assets/mofu_sleepy.png" alt="" width="90" height="100">
+          <img class="mock-mofu-night" src="assets/mofu_sleepy.png" alt="">
           <div class="diary-card">
             <p class="diary-date">きょうの3行</p>
-            <p class="diary-line">あたたかいお茶をのんだ。</p>
+            <p class="diary-line">お茶をのんだ。</p>
             <p class="diary-line">仕事はほどほど。</p>
             <p class="diary-line">はやくねる。えらい。</p>
             <div class="mood-row" aria-hidden="true">
@@ -86,32 +97,36 @@
           </div>
         </div>
         <div class="feature-text">
-          <h3>夜の、3行だけ日記</h3>
-          <p>ねるまえに3行だけ、きょうの気分といっしょにそっと記録。書けない夜は、書かなくていいよ。</p>
+          <h3>夜は、3行だけ日記</h3>
+          <p>きょうの気分といっしょに、そっと記録。書けない夜は、書かなくていいよ。</p>
         </div>
       </article>
 
       <article class="feature">
-        <div class="mock mock-letter">
-          <img class="letter-icon" src="assets/gift_envelope.png" alt="" width="56" height="56">
-          <div class="letter-card">
-            <p>おはよう。きょうは雨の音がきこえるね。</p>
-            <p>ぼくはちょっとうれしい。あなたは、あったかくしてすごしてね。</p>
-            <p class="letter-sign">— モフより</p>
+        <div>
+          <div class="mock mock-dress">
+            <img class="mock-room" src="assets/room_starry.jpg" alt="">
+            <img class="mock-mofu" src="assets/dress_strawhat.png" alt="">
+            <div class="dress-row" aria-hidden="true">
+              <div class="slot"><img src="assets/dress_ribbon.png" alt=""></div>
+              <div class="slot"><img src="assets/dress_crown.png" alt=""></div>
+              <div class="slot"><img src="assets/dress_witchhat.png" alt=""></div>
+            </div>
           </div>
-          <div class="letter-gifts" aria-hidden="true">
-            <img src="assets/gift_clover.png" alt="" width="36" height="36">
-            <img src="assets/gift_star.png" alt="" width="36" height="36">
-            <img src="assets/gift_konpeito.png" alt="" width="36" height="36">
+          <div class="theme-thumbs" aria-hidden="true">
+            <img src="assets/room_forest.jpg" alt="">
+            <img src="assets/room_seaside.jpg" alt="">
+            <img src="assets/room_washitsu.jpg" alt="">
+            <img src="assets/room_starry.jpg" alt="">
           </div>
         </div>
         <div class="feature-text">
-          <h3>モフからの、手紙とお土産</h3>
-          <p>ときどき、モフから手紙やちいさなお土産が届きます。天気や季節にあわせたひとことも。</p>
+          <h3>きみだけのモフに、きみだけの部屋</h3>
+          <p>育てた子は、着せ替えと部屋テーマで自分好みに飾れます。</p>
         </div>
       </article>
 
-      <p class="free-note">基本無料でつかえます。手紙とお土産は、ずっと無料。</p>
+      <p class="free-note">基本無料でつかえます。ときどきモフから届く手紙とお土産は、ずっと無料。</p>
     </section>
 
     <!-- プライバシー -->
@@ -119,8 +134,8 @@
       <h2>プライバシーの約束</h2>
       <ul>
         <li>
-          <h3>日記の本文を、サーバーで解析しません</h3>
-          <p>3行日記に書いたことばは、あなたとモフだけのもの。中身を読み取って何かに使うことはありません。</p>
+          <h3>書いたものは、あなたとモフだけのもの</h3>
+          <p>3行日記の本文を、サーバーで解析することはありません。</p>
         </li>
         <li>
           <h3>広告のための追跡をしません</h3>
@@ -135,7 +150,7 @@
 
     <!-- もう一度フォーム -->
     <section class="cta-again">
-      <img src="assets/mofu_hero.png" alt="" width="120" height="134" class="breathing">
+      <img src="assets/mofu_hero.png" alt="" class="breathing">
       <h2>リリースの日を、いっしょに待ちませんか</h2>
       <form class="signup" data-signup>
         <div class="signup-row">
@@ -153,9 +168,9 @@
   <footer>
     <p>事前登録でいただいたメールアドレスは、リリースのお知らせにだけ使い、それ以外の目的では使いません。配信停止はメール内の案内、または下記へのご連絡でいつでもできます。</p>
     <p>
-      <a href="/privacy.html">アプリのプライバシーポリシー</a>
+      <a href="/privacy">アプリのプライバシーポリシー</a>
       ・
-      <a href="/terms.html">利用規約</a>
+      <a href="/terms">利用規約</a>
       ・
       <a href="mailto:mofucare.app@gmail.com">お問い合わせ</a>
     </p>

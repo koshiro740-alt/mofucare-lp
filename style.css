@@ -1,4 +1,4 @@
-/* モフケア LP — パレットはアプリと同一 */
+/* モフケア LP v2 — スライドと同じデザイン言語(コーラルヒーロー+因果ストリップ) */
 :root {
   --bg: #FFFDF7;
   --ink: #463A30;
@@ -8,6 +8,9 @@
   --leaf-pale: #EAF2E5;
   --card: #FFFFFF;
   --outline: #E4DCCD;
+  --coral: #E08C82;
+  --coral-ink: #C4573C;
+  --coral-deep: #5C3325;
   --night: #4B465F;
   --night-card: #5A5472;
   --night-ink: #F4EFE4;
@@ -40,109 +43,147 @@ h1, h2, h3 { font-weight: 700; line-height: 1.5; }
   white-space: nowrap;
 }
 
-/* ---------- ヒーロー ---------- */
+/* ---------- ヒーロー(コーラル) ---------- */
 
 .hero {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 28px 24px 72px;
-  background:
-    radial-gradient(ellipse 90% 60% at 50% -10%, var(--leaf-pale) 0%, transparent 70%);
+  background: linear-gradient(175deg, #E8957F 0%, #DF8474 55%, #D06A4B 100%);
+  padding: 30px 24px 64px;
+  position: relative;
+  overflow: hidden;
 }
 
-.brand {
-  color: var(--leaf-deep);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0.12em;
-}
+.hero-inner { max-width: 640px; margin: 0 auto; text-align: center; }
 
-.hero-inner {
+.badge-row {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 8px;
-  margin-top: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
 }
 
-.eyebrow {
-  font-size: clamp(11.5px, 3.2vw, 13px);
-  color: var(--leaf-deep);
-  background: var(--leaf-pale);
+.badge {
+  background: #FFFDF7;
+  color: var(--coral-ink);
+  font-size: clamp(12.5px, 3.4vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 7px 18px;
   border-radius: 999px;
-  padding: 4px 16px;
-  display: inline-block;
+}
+
+.status {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 253, 247, 0.9);
+  letter-spacing: 0.04em;
 }
 
 h1 {
-  font-size: clamp(28px, 7vw, 44px);
-  letter-spacing: 0.04em;
-  margin-top: 14px;
+  margin-top: 22px;
+  font-size: clamp(25px, 7vw, 46px);
+  letter-spacing: 0.03em;
+  color: var(--coral-deep);
 }
 
-.lead {
-  color: var(--ink-muted);
-  max-width: 34em;
-  margin-top: 12px;
-  font-size: 15px;
+h1 em { font-style: normal; color: #FFFDF7; }
+
+/* 因果ストリップ */
+.causal { margin-top: 26px; position: relative; }
+
+.causal .chip {
+  display: inline-block;
+  background: #FFFDF7;
+  color: var(--leaf-deep);
+  font-weight: 700;
+  font-size: clamp(16px, 4.6vw, 21px);
+  padding: 10px 26px;
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(92, 51, 37, 0.22);
+  transform: rotate(-3deg);
 }
 
-.hero-mofu {
-  position: relative;
-  margin-top: 26px;
+.strip {
+  margin-top: 54px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 14px);
 }
 
-.hero-mofu img { display: block; }
+.strip .arrow {
+  font-size: clamp(18px, 5vw, 26px);
+  font-weight: 700;
+  color: rgba(255, 253, 247, 0.92);
+  padding-bottom: clamp(18px, 5vw, 34px);
+}
 
-/* ふわふわ漂う綿毛 */
-.fluff {
+.strip .g1 { width: clamp(38px, 10vw, 72px); }
+.strip .g2 { width: clamp(58px, 15vw, 112px); }
+.strip .g4 { width: clamp(108px, 29vw, 210px); }
+
+.strip .g4-wrap { position: relative; }
+
+.bubble {
   position: absolute;
-  background: var(--leaf);
-  border-radius: 50%;
-  opacity: 0.45;
-  animation: drift 7s ease-in-out infinite alternate;
-}
-.fluff-1 { width: 14px; height: 14px; left: -40px; top: 30%; }
-.fluff-2 { width: 9px; height: 9px; right: -34px; top: 12%; animation-delay: -2.5s; }
-.fluff-3 { width: 7px; height: 7px; right: -52px; bottom: 22%; animation-delay: -5s; background: #E8C8C8; }
-
-@keyframes drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(-16px); }
-}
-
-.breathing {
-  animation: breathe 4.5s ease-in-out infinite;
-  transform-origin: 50% 90%;
+  background: var(--card);
+  border: 2.5px solid var(--outline);
+  border-radius: 18px;
+  padding: 8px 16px;
+  font-size: clamp(12.5px, 3.4vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(92, 51, 37, 0.14);
+  top: -46px;
+  right: -10px;
+  transform: rotate(2deg);
 }
 
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.025); }
+.bubble::before,
+.bubble::after {
+  content: '';
+  position: absolute;
+  width: 0; height: 0;
+  border-style: solid;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .breathing, .fluff { animation: none; }
+.bubble::before {
+  border-width: 14px 9px 0 9px;
+  border-color: var(--outline) transparent transparent transparent;
+  bottom: -14px;
+  left: 30px;
 }
 
-/* 2カラム(広い画面) */
-@media (min-width: 820px) {
-  .hero-inner {
-    flex-direction: row;
-    text-align: left;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: 48px;
-  }
-  .hero-text { max-width: 460px; }
+.bubble::after {
+  border-width: 11px 6px 0 6px;
+  border-color: var(--card) transparent transparent transparent;
+  bottom: -10px;
+  left: 33px;
+}
+
+/* 落款スタンプ */
+.seal {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  background: #FFFDF7;
+  color: var(--coral-ink);
+  writing-mode: vertical-rl;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  padding: 12px 7px;
+  border-radius: 10px;
+  line-height: 1;
 }
 
 /* ---------- 登録フォーム ---------- */
 
 .signup {
   max-width: 480px;
-  margin: 36px auto 0;
+  margin: 34px auto 0;
   text-align: center;
 }
 
@@ -150,6 +191,8 @@ h1 {
   font-weight: 700;
   margin-bottom: 12px;
 }
+
+.hero .signup-title { color: #FFFDF7; }
 
 .signup-row {
   display: flex;
@@ -189,11 +232,17 @@ a:focus-visible {
   background: var(--leaf-deep);
   color: #FFFDF7;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
-.signup button:hover { background: #527A4B; transform: translateY(-1px); }
-.signup button:disabled { background: var(--leaf); cursor: default; transform: none; }
+.hero .signup button {
+  background: #FFFDF7;
+  color: var(--coral-ink);
+  box-shadow: 0 10px 26px rgba(92, 51, 37, 0.22);
+}
+
+.signup button:hover { filter: brightness(0.96); transform: translateY(-1px); }
+.signup button:disabled { opacity: 0.7; cursor: default; transform: none; }
 
 .signup-note {
   font-size: 12.5px;
@@ -201,15 +250,20 @@ a:focus-visible {
   margin-top: 10px;
 }
 
+.hero .signup-note { color: rgba(255, 253, 247, 0.85); }
+
 .signup-status {
   margin-top: 10px;
   font-size: 14.5px;
-  font-weight: 500;
+  font-weight: 600;
   min-height: 1.9em;
 }
 
 .signup-status.ok { color: var(--leaf-deep); }
 .signup-status.ng { color: #A9695E; }
+
+.hero .signup-status.ok { color: #FFFDF7; }
+.hero .signup-status.ng { color: #5C3325; }
 
 /* ---------- セクション共通 ---------- */
 
@@ -226,8 +280,6 @@ h2 {
 }
 
 /* ---------- できること ---------- */
-
-.features { border-top: 1.5px dashed var(--outline); }
 
 .feature {
   display: flex;
@@ -260,8 +312,7 @@ h2 {
   flex-shrink: 0;
 }
 
-/* 1) ケア(昼の部屋) */
-.mock-day .mock-room {
+.mock-room {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -270,11 +321,13 @@ h2 {
   object-position: 50% 72%;
 }
 
+/* 1) ケア(昼の部屋) */
 .mock-day .mock-mofu {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 26px;
+  width: 110px;
 }
 
 .care-chips {
@@ -294,7 +347,7 @@ h2 {
   border-radius: 999px;
   padding: 5px 16px;
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .care-chips li.done {
@@ -326,7 +379,7 @@ h2 {
     radial-gradient(circle 1px at 70px 96px, #F4EFE4 99%, transparent);
 }
 
-.mock-mofu-night { position: relative; margin-bottom: 10px; }
+.mock-mofu-night { position: relative; margin-bottom: 10px; width: 90px; }
 
 .diary-card {
   position: relative;
@@ -362,37 +415,53 @@ h2 {
 
 .mood-row .mood-on { background: var(--leaf); }
 
-/* 3) 手紙 */
-.mock-letter {
-  background: linear-gradient(180deg, var(--leaf-pale) 0%, #F6F4E8 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  gap: 12px;
+/* 3) 着せ替え・部屋テーマ(星空) */
+.mock-dress .mock-mofu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 34px;
+  width: 120px;
 }
 
-.letter-icon { position: relative; }
+.dress-row {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
-.letter-card {
-  background: var(--card);
+.dress-row .slot {
+  background: rgba(255, 253, 247, 0.94);
   border: 1.5px solid var(--outline);
   border-radius: 14px;
-  padding: 12px 16px;
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--ink);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.letter-sign {
-  text-align: right;
-  color: var(--leaf-deep);
-  font-size: 12px;
-  margin-top: 4px;
+.dress-row .slot img { width: 42px; }
+
+.theme-thumbs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
 }
 
-.letter-gifts { display: flex; gap: 14px; }
+.theme-thumbs img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--card);
+  box-shadow: 0 3px 10px rgba(70, 58, 48, 0.14);
+}
 
 .free-note {
   text-align: center;
@@ -403,9 +472,7 @@ h2 {
 
 /* ---------- プライバシー ---------- */
 
-.privacy {
-  border-top: 1.5px dashed var(--outline);
-}
+.privacy { border-top: 1.5px dashed var(--outline); }
 
 .privacy ul {
   list-style: none;
@@ -434,9 +501,35 @@ h2 {
   padding-bottom: 80px;
 }
 
-.cta-again img { margin-bottom: 12px; }
+.cta-again img { margin-bottom: 12px; width: 120px; }
 .cta-again h2 { margin-bottom: 0; }
 .cta-again .signup { margin-top: 24px; }
+
+.breathing {
+  animation: breathe 4.5s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+}
+
+.fluff {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 253, 247, 0.4);
+  animation: drift 7s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathing, .fluff { animation: none; }
+}
 
 /* ---------- フッター ---------- */
 

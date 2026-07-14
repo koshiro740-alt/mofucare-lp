@@ -4,12 +4,12 @@
   var SUPABASE_URL = 'https://cydsyqmyhxfpyjueujpk.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_nstO9P6OEwDeGUfImBkbXQ_hNIxFom9';
 
-  // 見出しA/Bテスト: ?v=b で2案目に切り替え
+  // 見出しA/Bテスト: a=モフのごはんは、あなたのセルフケア。(HTML既定) / ?v=b で情緒コピーに切り替え
   var variant = new URLSearchParams(location.search).get('v') === 'b' ? 'b' : 'a';
   if (variant === 'b') {
     document
       .getElementById('headline')
-      .replaceChildren('自分をお世話すると、', document.createElement('br'), 'モフが育つ。');
+      .replaceChildren('がんばらない日も、', document.createElement('br'), 'そばにいるよ。');
   }
 
   var MESSAGES = {
