@@ -46,7 +46,9 @@ h1, h2, h3 { font-weight: 700; line-height: 1.5; }
 /* ---------- ヒーロー(コーラル) ---------- */
 
 .hero {
-  background: linear-gradient(175deg, #E8957F 0%, #DF8474 55%, #D06A4B 100%);
+  background:
+    radial-gradient(ellipse 100% 50% at 50% -8%, var(--leaf-pale) 0%, transparent 72%),
+    var(--bg);
   padding: 30px 24px 64px;
   position: relative;
   overflow: hidden;
@@ -63,8 +65,8 @@ h1, h2, h3 { font-weight: 700; line-height: 1.5; }
 }
 
 .badge {
-  background: #FFFDF7;
-  color: var(--coral-ink);
+  background: var(--leaf-deep);
+  color: #FFFDF7;
   font-size: clamp(12.5px, 3.4vw, 15px);
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -75,7 +77,7 @@ h1, h2, h3 { font-weight: 700; line-height: 1.5; }
 .status {
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 253, 247, 0.9);
+  color: var(--ink-muted);
   letter-spacing: 0.04em;
 }
 
@@ -83,23 +85,24 @@ h1 {
   margin-top: 22px;
   font-size: clamp(25px, 7vw, 46px);
   letter-spacing: 0.03em;
-  color: var(--coral-deep);
+  color: var(--ink);
 }
 
-h1 em { font-style: normal; color: #FFFDF7; }
+h1 em { font-style: normal; color: var(--leaf-deep); }
 
 /* 因果ストリップ */
 .causal { margin-top: 26px; position: relative; }
 
 .causal .chip {
   display: inline-block;
-  background: #FFFDF7;
+  background: var(--leaf-pale);
   color: var(--leaf-deep);
+  border: 2px solid var(--leaf);
   font-weight: 700;
   font-size: clamp(16px, 4.6vw, 21px);
-  padding: 10px 26px;
+  padding: 9px 26px;
   border-radius: 999px;
-  box-shadow: 0 10px 26px rgba(92, 51, 37, 0.22);
+  box-shadow: 0 8px 22px rgba(70, 58, 48, 0.12);
   transform: rotate(-3deg);
 }
 
@@ -114,7 +117,7 @@ h1 em { font-style: normal; color: #FFFDF7; }
 .strip .arrow {
   font-size: clamp(18px, 5vw, 26px);
   font-weight: 700;
-  color: rgba(255, 253, 247, 0.92);
+  color: var(--leaf);
   padding-bottom: clamp(18px, 5vw, 34px);
 }
 
@@ -168,8 +171,8 @@ h1 em { font-style: normal; color: #FFFDF7; }
   position: absolute;
   right: 16px;
   bottom: 18px;
-  background: #FFFDF7;
-  color: var(--coral-ink);
+  background: var(--coral);
+  color: #FFFDF7;
   writing-mode: vertical-rl;
   font-size: 14px;
   font-weight: 800;
@@ -192,7 +195,6 @@ h1 em { font-style: normal; color: #FFFDF7; }
   margin-bottom: 12px;
 }
 
-.hero .signup-title { color: #FFFDF7; }
 
 .signup-row {
   display: flex;
@@ -235,12 +237,6 @@ a:focus-visible {
   transition: transform 0.15s ease, filter 0.15s ease;
 }
 
-.hero .signup button {
-  background: #FFFDF7;
-  color: var(--coral-ink);
-  box-shadow: 0 10px 26px rgba(92, 51, 37, 0.22);
-}
-
 .signup button:hover { filter: brightness(0.96); transform: translateY(-1px); }
 .signup button:disabled { opacity: 0.7; cursor: default; transform: none; }
 
@@ -250,7 +246,6 @@ a:focus-visible {
   margin-top: 10px;
 }
 
-.hero .signup-note { color: rgba(255, 253, 247, 0.85); }
 
 .signup-status {
   margin-top: 10px;
@@ -262,8 +257,6 @@ a:focus-visible {
 .signup-status.ok { color: var(--leaf-deep); }
 .signup-status.ng { color: #A9695E; }
 
-.hero .signup-status.ok { color: #FFFDF7; }
-.hero .signup-status.ng { color: #5C3325; }
 
 /* ---------- セクション共通 ---------- */
 
@@ -518,7 +511,8 @@ h2 {
 .fluff {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 253, 247, 0.4);
+  background: var(--leaf);
+  opacity: 0.4;
   animation: drift 7s ease-in-out infinite alternate;
 }
 
