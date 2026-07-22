@@ -14,8 +14,52 @@
   <meta property="og:image" content="https://mofucare.pages.dev/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
 
+  <link rel="canonical" href="https://mofucare.pages.dev/">
   <link rel="icon" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "モフケア",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "iOS",
+    "description": "じぶんをお世話する育成アプリ。お水をのむ・のびをするなど自分のセルフケアで、もふもふの相棒「モフ」が育つ。3行日記、着せ替え、部屋テーマ。基本無料。",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "url": "https://mofucare.pages.dev/",
+    "image": "https://mofucare.pages.dev/assets/og.png",
+    "author": { "@type": "Organization", "name": "モフケア開発者" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "モフケアは無料ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、基本無料でつかえます。ときどきモフから届く手紙とお土産も、ずっと無料です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "どの端末で使えますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "まずはiOS(iPhone)向けにじゅんび中です。ほかの端末での提供は未定です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "日記の内容はだれかに見られますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "3行日記の本文をサーバーで解析することはありません。書いたものは、あなたとモフだけのものです。くわしくはプライバシーポリシーをご覧ください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "リリースはいつですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "いま、じゅんび中です。事前登録をしておくと、リリースの日にメールでお知らせします。" }
+      }
+    ]
+  }
+  </script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -65,6 +109,7 @@
   <main>
     <section class="features">
       <h2>モフケアでできること</h2>
+      <p class="section-lead">モフケアは、自分のセルフケア(お水をのむ・のびをする・3行日記)を続けると、もふもふの相棒『モフ』が育っていく、iOSの育成アプリです。</p>
 
       <article class="feature">
         <div class="mock mock-day">
@@ -144,6 +189,29 @@
         <li>
           <h3>このページの計測も、ひかえめに</h3>
           <p>訪問数の集計にはCookieを使わない仕組みだけを使っています。</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- よくある質問 -->
+    <section class="faq">
+      <h2>よくある質問</h2>
+      <ul>
+        <li>
+          <h3>モフケアは無料ですか？</h3>
+          <p>はい、基本無料でつかえます。ときどきモフから届く手紙とお土産も、ずっと無料です。</p>
+        </li>
+        <li>
+          <h3>どの端末で使えますか？</h3>
+          <p>まずはiOS(iPhone)向けにじゅんび中です。ほかの端末での提供は未定です。</p>
+        </li>
+        <li>
+          <h3>日記の内容はだれかに見られますか？</h3>
+          <p>3行日記の本文をサーバーで解析することはありません。書いたものは、あなたとモフだけのもの。くわしくは<a href="/privacy">プライバシーポリシー</a>へ。</p>
+        </li>
+        <li>
+          <h3>リリースはいつですか？</h3>
+          <p>いま、じゅんび中です。事前登録をしておくと、リリースの日にメールでお知らせします。</p>
         </li>
       </ul>
     </section>
