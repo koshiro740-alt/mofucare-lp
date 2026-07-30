@@ -92,8 +92,8 @@
       <p class="signup-status" role="status" aria-live="polite"></p>
     </form>
 
-    <figure class="storybook reveal">
-      <img src="assets/scene_hero.jpg" alt="あさの部屋で、のびをするモフ" width="1440" height="827">
+    <figure class="storybook">
+      <img src="assets/scene_hero.jpg" alt="あさの部屋で、のびをするモフ" width="1440" height="827" fetchpriority="high" decoding="async">
       <figcaption>あさ。モフはきょうも、きみを待っています。</figcaption>
     </figure>
   </header>
@@ -104,7 +104,7 @@
       <h2>モフとすごす、いちにち</h2>
       <p class="section-lead">モフケアは、自分のセルフケア(お水をのむ・のびをする・3行日記)を続けると、もふもふの相棒『モフ』が育っていく、iOSの育成アプリです。</p>
 
-      <article class="page reveal">
+      <article class="page">
         <div class="window-frame">
           <img src="assets/scene_water.jpg" alt="お水をのむモフ" loading="lazy" width="880" height="880">
         </div>
@@ -120,7 +120,7 @@
         </div>
       </article>
 
-      <article class="page reveal">
+      <article class="page">
         <div class="window-frame">
           <img src="assets/scene_diary.jpg" alt="夜、机で日記を書くモフ" loading="lazy" width="880" height="880">
         </div>
@@ -131,24 +131,22 @@
         </div>
       </article>
 
-      <article class="page reveal">
+      <article class="page">
         <div class="window-frame">
           <img src="assets/scene_growth.jpg" alt="たまごとちびモフとおとなモフが並ぶ部屋" loading="lazy" width="880" height="880">
         </div>
         <div class="page-text">
-          <p class="toki">まいにち</p>
           <h3>できた日だけで、ちゃんと育つ</h3>
           <p>たまごから、おとなモフまで。連続記録もノルマもありません。</p>
           <p class="bubble">できない日が あっても、<br>ぼくは ここにいるよ</p>
         </div>
       </article>
 
-      <article class="page reveal">
+      <article class="page">
         <div class="window-frame">
           <img src="assets/scene_strawhat.jpg" alt="麦わら帽子をかぶったモフ" loading="lazy" width="880" height="880">
         </div>
         <div class="page-text">
-          <p class="toki">すきな日</p>
           <h3>きみだけのモフに、きみだけの部屋</h3>
           <p>育てた子は、着せ替えと部屋テーマで自分好みに飾れます。</p>
           <div class="dress-row" aria-hidden="true">
@@ -241,21 +239,6 @@
     <p class="copyright">© 2026 モフケア</p>
   </footer>
 
-  <script>
-    // ゆっくり現れる演出(動きを減らす設定の人には出さない)
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('shown'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
-        });
-      }, { rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-    })();
-  </script>
   <script src="main.js"></script>
   <script data-goatcounter="https://mofucare.goatcounter.com/count" async src="vendor-count.js"></script>
 </body>

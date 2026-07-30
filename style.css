@@ -90,8 +90,10 @@ h1, h2, h3 {
   font-weight: 800;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  overflow-wrap: anywhere;
   min-width: 0;
+  /* 長い英単語ではみ出すのは防ぎつつ、「部屋」のような熟語は割らない */
+  overflow-wrap: break-word;
+  word-break: auto-phrase;
 }
 
 /* ---------- 天:ロゴと状態(中央軸をわざと外す) ---------- */
@@ -250,6 +252,10 @@ main section {
   margin: 0 auto;
   padding: var(--space-3xl) var(--space-md);
 }
+
+/* セクションごとに呼吸を変える(全部同じ余白は単調に見える) */
+.privacy { padding-block: var(--space-2xl); }
+.faq { padding-block: var(--space-2xl) var(--space-3xl); }
 
 main section + section { border-top: 2px dashed var(--line-soft); }
 
@@ -479,18 +485,31 @@ footer p {
 
 .copyright { letter-spacing: 0.08em; }
 
-/* ---------- あらわれる演出 ---------- */
+/* ---------- 開いたときの、ひとつだけの演出 ----------
+   スクロールのたびに各セクションを出現させるのはやりすぎ(ページが落ち着かない)。
+   最初のひと呼吸だけ。ヒーローの画像は最大描画要素なので animate しない。 */
 
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+.hero > .badge,
+.hero > h1,
+.hero > .hero-sub,
+.hero > .signup {
+  animation: rise 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
 }
 
-.reveal.shown { opacity: 1; transform: none; }
+.hero > h1 { animation-delay: 0.06s; }
+.hero > .hero-sub { animation-delay: 0.12s; }
+.hero > .signup { animation-delay: 0.18s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero > .badge,
+  .hero > h1,
+  .hero > .hero-sub,
+  .hero > .signup { animation: none; }
   .signup button { transition: none; }
 }
