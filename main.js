@@ -31,6 +31,9 @@
     var note = form.querySelector('.signup-note');
     if (note) note.hidden = true;
     setStatus(form, 'ok', MESSAGES.ok);
+    // 登録できた人にだけ、シェアの導線を出す(押すかどうかは本人まかせ)
+    var share = form.querySelector('.signup-share');
+    if (share) share.hidden = false;
   }
 
   function submit(form) {
@@ -77,6 +80,15 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       submit(form);
+    });
+  });
+
+  // シェアが押されたかも数える(流入側は ?ref=share で分かる)
+  document.querySelectorAll('.signup-share a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'share-x', event: true });
+      }
     });
   });
 })();

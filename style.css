@@ -155,6 +155,13 @@ h1 em { font-style: normal; color: var(--coral-ink); }
   letter-spacing: 0.03em;
 }
 
+.hero-for {
+  margin-top: var(--space-2xs);
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
 /* 絵本の見ひらき */
 .storybook { max-width: 960px; margin: var(--space-2xl) auto 0; }
 
@@ -228,6 +235,19 @@ h1 em { font-style: normal; color: var(--coral-ink); }
 }
 
 .signup-note { margin-top: var(--space-xs); font-size: 12.5px; color: var(--muted); }
+
+/* 登録できた人にだけ出るシェア導線 */
+.signup-share { margin-top: var(--space-xs); }
+
+.signup-share a {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--leaf-deep);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  padding: var(--space-3xs) var(--space-2xs);
+}
 
 .signup-status {
   margin-top: var(--space-xs);
@@ -612,6 +632,32 @@ h2 {
   .page:nth-of-type(even) .window-frame { order: 2; }
   .page-text { text-align: left; }
   .care-chips, .dress-row, .theme-thumbs { justify-content: flex-start; }
+}
+
+/* ---------- アプリの画面(実機のスクリーンショット) ---------- */
+
+.shot-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.shot-row figure { width: min(240px, 68vw); }
+
+.shot-row img {
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  border: 2px solid var(--line-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.shot-row figcaption {
+  margin-top: var(--space-2xs);
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
 }
 
 /* ---------- プライバシー / FAQ ---------- */
