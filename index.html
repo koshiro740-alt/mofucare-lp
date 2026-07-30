@@ -49,7 +49,7 @@
       {
         "@type": "Question",
         "name": "どの端末で使えますか？",
-        "acceptedAnswer": { "@type": "Answer", "text": "まずはiOS(iPhone)向けにじゅんび中です。ほかの端末での提供は未定です。" }
+        "acceptedAnswer": { "@type": "Answer", "text": "まずはiOS(iPhone)向けにじゅんび中です。ほかの端末にも、順次ひろげていく予定です。" }
       },
       {
         "@type": "Question",
@@ -65,7 +65,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="style.css?v=v4">
+  <link rel="stylesheet" href="style.css?v=v5">
 </head>
 <body>
 
@@ -106,17 +106,18 @@
 
       <article class="page">
         <div class="window-frame">
-          <img src="assets/scene_water.jpg" alt="お水をのむモフ" loading="lazy" width="880" height="880">
+          <img id="care-scene" src="assets/scene_water.jpg" alt="お水をのむモフ" loading="lazy" width="880" height="880">
         </div>
         <div class="page-text">
           <p class="toki">あさ</p>
           <h3>お世話は、タップするだけ</h3>
           <p>1日ぶんのケアは、ぜんぶやっても1分ちょっと。あなたがお水をのむと、モフのおなかも満たされます。</p>
-          <ul class="care-chips" aria-hidden="true">
-            <li class="done">✓ お水をのむ</li>
-            <li class="done">✓ のびをする</li>
-            <li>ふかく呼吸する</li>
+          <ul class="care-chips" id="care-chips">
+            <li><button type="button" aria-pressed="false"><span class="tick" aria-hidden="true"></span>お水をのむ</button></li>
+            <li><button type="button" aria-pressed="false"><span class="tick" aria-hidden="true"></span>のびをする</button></li>
+            <li><button type="button" aria-pressed="false"><span class="tick" aria-hidden="true"></span>ふかく呼吸する</button></li>
           </ul>
+          <p class="demo-hint" id="care-hint" role="status">ためしに、タップしてみてください。</p>
         </div>
       </article>
 
@@ -128,6 +129,24 @@
           <p class="toki">よる</p>
           <h3>夜は、3行だけ日記</h3>
           <p>きょうの気分といっしょに、そっと記録。書けない夜は、書かなくていいよ。</p>
+
+          <div class="diary">
+            <p class="diary-head">きょうの3行</p>
+            <label class="visually-hidden" for="diary-1">1行目</label>
+            <input class="diary-line" id="diary-1" type="text" maxlength="30" placeholder="お茶をのんだ。">
+            <label class="visually-hidden" for="diary-2">2行目</label>
+            <input class="diary-line" id="diary-2" type="text" maxlength="30" placeholder="仕事はほどほど。">
+            <label class="visually-hidden" for="diary-3">3行目</label>
+            <input class="diary-line" id="diary-3" type="text" maxlength="30" placeholder="はやくねる。えらい。">
+
+            <fieldset class="mood">
+              <legend>きょうの気分</legend>
+              <button type="button" aria-pressed="false">よわった</button>
+              <button type="button" aria-pressed="false">ふつう</button>
+              <button type="button" aria-pressed="false">いいかんじ</button>
+            </fieldset>
+          </div>
+          <p class="demo-hint">お試し用です。ここに書いたものは、どこにも送られません。</p>
         </div>
       </article>
 
@@ -143,23 +162,45 @@
       </article>
 
       <article class="page">
-        <div class="window-frame">
-          <img src="assets/scene_strawhat.jpg" alt="麦わら帽子をかぶったモフ" loading="lazy" width="880" height="880">
+        <div class="window-frame dressup">
+          <img class="room" id="room-img" src="assets/room_forest.jpg?v=v4" alt="もりのへや" loading="lazy" width="768" height="1376">
+          <img class="mofu" id="dress-img" src="assets/dress_strawhat.png?v=v4" alt="麦わら帽子をかぶったモフ" loading="lazy" width="420" height="485">
         </div>
         <div class="page-text">
           <h3>きみだけのモフに、きみだけの部屋</h3>
-          <p>育てた子は、着せ替えと部屋テーマで自分好みに飾れます。</p>
-          <div class="dress-row" aria-hidden="true">
-            <span class="slot"><img src="assets/dress_ribbon.png?v=v3" alt="" loading="lazy"></span>
-            <span class="slot"><img src="assets/dress_crown.png?v=v3" alt="" loading="lazy"></span>
-            <span class="slot"><img src="assets/dress_witchhat.png?v=v3" alt="" loading="lazy"></span>
-          </div>
-          <div class="theme-thumbs" aria-hidden="true">
-            <img src="assets/room_forest.jpg?v=v3" alt="" loading="lazy">
-            <img src="assets/room_seaside.jpg?v=v3" alt="" loading="lazy">
-            <img src="assets/room_washitsu.jpg?v=v3" alt="" loading="lazy">
-            <img src="assets/room_starry.jpg?v=v3" alt="" loading="lazy">
-          </div>
+          <p>育てた子は、着せ替えと部屋テーマで自分好みに飾れます。ここで着せかえてみてください。</p>
+
+          <fieldset class="picker" id="dress-picker">
+            <legend>きせかえ</legend>
+            <button type="button" data-src="assets/dress_strawhat.png?v=v4" data-label="麦わら帽子をかぶったモフ" aria-pressed="true">
+              <img src="assets/dress_strawhat.png?v=v4" alt="麦わらぼうし" loading="lazy">
+            </button>
+            <button type="button" data-src="assets/dress_ribbon.png?v=v4" data-label="リボンをつけたモフ" aria-pressed="false">
+              <img src="assets/dress_ribbon.png?v=v4" alt="リボン" loading="lazy">
+            </button>
+            <button type="button" data-src="assets/dress_crown.png?v=v4" data-label="王冠をかぶったモフ" aria-pressed="false">
+              <img src="assets/dress_crown.png?v=v4" alt="おうかん" loading="lazy">
+            </button>
+            <button type="button" data-src="assets/dress_witchhat.png?v=v4" data-label="魔女帽子をかぶったモフ" aria-pressed="false">
+              <img src="assets/dress_witchhat.png?v=v4" alt="まじょのぼうし" loading="lazy">
+            </button>
+          </fieldset>
+
+          <fieldset class="picker rooms" id="room-picker">
+            <legend>おへや</legend>
+            <button type="button" data-src="assets/room_forest.jpg?v=v4" data-label="もりのへや" aria-pressed="true">
+              <img src="assets/room_forest.jpg?v=v4" alt="もりのへや" loading="lazy">
+            </button>
+            <button type="button" data-src="assets/room_seaside.jpg?v=v4" data-label="うみべのへや" aria-pressed="false">
+              <img src="assets/room_seaside.jpg?v=v4" alt="うみべのへや" loading="lazy">
+            </button>
+            <button type="button" data-src="assets/room_washitsu.jpg?v=v4" data-label="わしつ" aria-pressed="false">
+              <img src="assets/room_washitsu.jpg?v=v4" alt="わしつ" loading="lazy">
+            </button>
+            <button type="button" data-src="assets/room_starry.jpg?v=v4" data-label="ほしぞらのへや" aria-pressed="false">
+              <img src="assets/room_starry.jpg?v=v4" alt="ほしぞらのへや" loading="lazy">
+            </button>
+          </fieldset>
         </div>
       </article>
 
@@ -195,7 +236,7 @@
         </li>
         <li>
           <h3>どの端末で使えますか？</h3>
-          <p>まずはiOS(iPhone)向けにじゅんび中です。ほかの端末での提供は未定です。</p>
+          <p>まずはiOS(iPhone)向けにじゅんび中です。ほかの端末にも、順次ひろげていく予定です。</p>
         </li>
         <li>
           <h3>日記の内容はだれかに見られますか？</h3>
@@ -240,6 +281,7 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="demo.js"></script>
   <script data-goatcounter="https://mofucare.goatcounter.com/count" async src="vendor-count.js"></script>
 </body>
 </html>

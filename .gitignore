@@ -1,0 +1,4 @@
+# デザイン監査用スキル(Hallmark)。開発時の道具なので、公開リポにも配信物にも入れない。
+# 入れ直すときは `npx skills add nutlope/hallmark`
+.agents/
+.claude/

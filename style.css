@@ -167,8 +167,8 @@ h1 em { font-style: normal; color: var(--coral-ink); }
 }
 
 .storybook figcaption {
-  margin-top: var(--space-xs);
-  font-size: 13.5px;
+  margin-top: var(--space-sm);
+  font-size: clamp(15px, 1.6vw, 17px);
   color: var(--muted);
   letter-spacing: 0.08em;
 }
@@ -241,8 +241,9 @@ h1 em { font-style: normal; color: var(--coral-ink); }
 
 @media (min-width: 560px) {
   .signup-row { flex-direction: row; align-items: center; }
-  .signup input { flex: 1; min-width: 0; }
-  .signup button { flex-shrink: 0; }
+  /* 入力欄はボタンより広く。書く場所が主役で、押す場所は添えもの */
+  .signup input { flex: 1 1 auto; min-width: 0; }
+  .signup button { flex: 0 1 auto; }
 }
 
 /* ---------- セクション共通 ---------- */
@@ -308,6 +309,21 @@ h2 {
 
 .window-frame.small { width: min(230px, 62vw); }
 
+/* 着せ替えデモ: 部屋の上にモフを重ねる(アプリと同じ組み立て) */
+.window-frame.dressup { position: relative; }
+
+.window-frame.dressup .room { object-position: 50% 82%; }
+
+.window-frame.dressup .mofu {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  width: 56%;
+  height: auto;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 8px 14px rgba(70, 58, 48, 0.22));
+}
+
 .toki {
   display: inline-block;
   font-size: 13px;
@@ -325,7 +341,7 @@ h2 {
 
 .page-text > p { color: var(--muted); font-size: 15px; }
 
-/* アプリのケアチップ(実UIの引用) */
+/* アプリのケアチップ(押して試せる) */
 .care-chips {
   list-style: none;
   display: flex;
@@ -335,19 +351,186 @@ h2 {
   margin-top: var(--space-sm);
 }
 
-.care-chips li {
+.care-chips button {
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
   background: var(--card);
+  color: var(--ink);
   border: 2px solid var(--line-soft);
   border-radius: var(--radius-pill);
   padding: var(--space-2xs) var(--space-sm);
   font-size: 14px;
   font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.care-chips li.done {
+.care-chips button:hover { border-color: var(--leaf); }
+
+.care-chips .tick {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border: 2px solid var(--line-input);
+  border-radius: 50%;
+  position: relative;
+}
+
+.care-chips button[aria-pressed="true"] {
   background: var(--leaf-pale);
   border-color: var(--leaf);
   color: var(--leaf-deep);
+}
+
+.care-chips button[aria-pressed="true"] .tick {
+  background: var(--leaf-deep);
+  border-color: var(--leaf-deep);
+}
+
+/* チェックの線 */
+.care-chips button[aria-pressed="true"] .tick::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--kami);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.demo-hint {
+  margin-top: var(--space-xs);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* よる: 書ける3行日記(お試し・保存しない) */
+.diary {
+  margin-top: var(--space-sm);
+  background: var(--card);
+  border: 2px dashed var(--line-soft);
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  text-align: left;
+}
+
+.diary-head {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.diary-line {
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed var(--line-input);
+  border-radius: 0;
+  padding: var(--space-2xs) var(--space-3xs);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.diary-line::placeholder { color: var(--muted); opacity: 0.75; }
+
+.diary-line:focus-visible {
+  outline: 3px solid var(--coral-cta);
+  border-bottom-color: var(--coral-cta);
+}
+
+.diary-line + .diary-line { margin-top: var(--space-2xs); }
+
+.mood {
+  border: none;
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.mood legend {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.mood button,
+.picker button {
+  font: inherit;
+  cursor: pointer;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line-soft);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.mood button {
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  padding: var(--space-3xs) var(--space-xs);
+}
+
+.mood button:hover,
+.picker button:hover { border-color: var(--leaf); }
+
+.mood button[aria-pressed="true"] {
+  background: var(--leaf-pale);
+  border-color: var(--leaf-deep);
+  color: var(--leaf-deep);
+}
+
+/* すきな日: きせかえ・おへやの選択 */
+.picker {
+  border: none;
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.picker legend {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.picker button {
+  width: 68px;
+  height: 68px;
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.picker button[aria-pressed="true"] {
+  border-color: var(--coral-cta);
+  box-shadow: 0 0 0 3px rgba(190, 74, 50, 0.18);
+}
+
+.picker button img { width: 48px; height: auto; }
+
+.picker.rooms button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 78%;
 }
 
 /* モフのふきだし */
