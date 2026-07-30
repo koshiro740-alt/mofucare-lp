@@ -18,6 +18,10 @@
   <link rel="icon" href="assets/favicon.png?v=v3">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=v3">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,113 +65,102 @@
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=v4">
 </head>
 <body>
 
-  <!-- ヒーロー(コーラル) -->
+  <!-- ヒーロー: 絵本のとびら -->
   <header class="hero">
-    <div class="hero-inner">
-      <div class="badge-row">
-        <span class="badge">じぶんをお世話する、育成アプリ</span>
-        <span class="status">iOS・じゅんび中</span>
-      </div>
+    <img class="brand" src="assets/logo_mofucare.png?v=v3" alt="モフケア" width="164" height="67">
 
-      <h1 id="headline">モフのごはんは、<br><em>あなたのセルフケア</em>。</h1>
-
-      <div class="causal">
-        <span class="chip">✓ お水をのむ</span>
-        <div class="strip">
-          <img class="g1" src="assets/g1_big.png?v=v3" alt="たまご">
-          <span class="arrow" aria-hidden="true">→</span>
-          <img class="g2" src="assets/g2_big.png?v=v3" alt="ちびモフ">
-          <span class="arrow" aria-hidden="true">→</span>
-          <div class="g4-wrap">
-            <p class="bubble">きみの おかげだよ</p>
-            <img class="g4 breathing" src="assets/g4_big.png?v=v3" alt="おとなモフ">
-          </div>
-        </div>
-      </div>
-
-      <form class="signup" data-signup>
-        <p class="signup-title">リリースしたら、そっとお知らせします</p>
-        <div class="signup-row">
-          <label class="visually-hidden" for="email-1">メールアドレス</label>
-          <input id="email-1" type="email" name="email" placeholder="メールアドレス" autocomplete="email" required>
-          <button type="submit">やさしくお知らせを受けとる</button>
-        </div>
-        <p class="signup-note">メールはリリースのお知らせにだけ使います。</p>
-        <p class="signup-status" role="status" aria-live="polite"></p>
-      </form>
+    <div class="badge-row">
+      <span class="badge">じぶんをお世話する、育成アプリ</span>
+      <span class="status">iOS・じゅんび中</span>
     </div>
-    <div class="fluff" style="width:18px;height:18px;left:8%;top:30%" aria-hidden="true"></div>
-    <div class="fluff" style="width:12px;height:12px;right:10%;top:18%;animation-delay:-3s" aria-hidden="true"></div>
-    <img class="seal" src="assets/logo_mofucare.png?v=v3" alt="モフケア">
+
+    <h1 id="headline">モフのごはんは、<br><em>あなたのセルフケア</em>。</h1>
+    <p class="hero-sub">1タップの小さなセルフケアが、この子のごはん。</p>
+
+    <form class="signup" data-signup>
+      <div class="signup-row">
+        <label class="visually-hidden" for="email-1">メールアドレス</label>
+        <input id="email-1" type="email" name="email" placeholder="メールアドレス" autocomplete="email" required>
+        <button type="submit">やさしくお知らせを受けとる</button>
+      </div>
+      <p class="signup-note">リリースの日に、メールを1通。それ以外には使いません。</p>
+      <p class="signup-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <figure class="storybook reveal">
+      <img src="assets/scene_hero.jpg" alt="あさの部屋で、のびをするモフ" width="1440" height="827">
+      <figcaption>あさ。モフはきょうも、きみを待っています。</figcaption>
+    </figure>
   </header>
 
-  <!-- できること -->
   <main>
-    <section class="features">
-      <h2>モフケアでできること</h2>
+    <!-- モフとすごす、いちにち -->
+    <section class="day">
+      <h2>モフとすごす、いちにち</h2>
       <p class="section-lead">モフケアは、自分のセルフケア(お水をのむ・のびをする・3行日記)を続けると、もふもふの相棒『モフ』が育っていく、iOSの育成アプリです。</p>
 
-      <article class="feature">
-        <div class="mock mock-day">
-          <img class="mock-room" src="assets/room_day.jpg?v=v3" alt="" width="480" height="860">
-          <img class="mock-mofu" src="assets/mofu_sparkle.png?v=v3" alt="">
-          <ul class="care-chips">
-            <li class="done"><span class="check" aria-hidden="true">✓</span>お水をのむ</li>
-            <li class="done"><span class="check" aria-hidden="true">✓</span>のびをする</li>
+      <article class="page reveal">
+        <div class="window-frame">
+          <img src="assets/scene_water.jpg" alt="お水をのむモフ" loading="lazy" width="880" height="880">
+        </div>
+        <div class="page-text">
+          <p class="toki">あさ</p>
+          <h3>お世話は、タップするだけ</h3>
+          <p>1日ぶんのケアは、ぜんぶやっても1分ちょっと。あなたがお水をのむと、モフのおなかも満たされます。</p>
+          <ul class="care-chips" aria-hidden="true">
+            <li class="done">✓ お水をのむ</li>
+            <li class="done">✓ のびをする</li>
             <li>ふかく呼吸する</li>
           </ul>
         </div>
-        <div class="feature-text">
-          <h3>お世話は、タップするだけ</h3>
-          <p>1日ぶんのケアは、ぜんぶやっても1分ちょっと。できなかった日があっても、モフは責めません。</p>
-        </div>
       </article>
 
-      <article class="feature">
-        <div class="mock mock-night">
-          <div class="stars" aria-hidden="true"></div>
-          <img class="mock-mofu-night" src="assets/mofu_sleepy.png?v=v3" alt="">
-          <div class="diary-card">
-            <p class="diary-date">きょうの3行</p>
-            <p class="diary-line">お茶をのんだ。</p>
-            <p class="diary-line">仕事はほどほど。</p>
-            <p class="diary-line">はやくねる。えらい。</p>
-            <div class="mood-row" aria-hidden="true">
-              <span></span><span></span><span class="mood-on"></span><span></span><span></span>
-            </div>
-          </div>
+      <article class="page reveal">
+        <div class="window-frame">
+          <img src="assets/scene_diary.jpg" alt="夜、机で日記を書くモフ" loading="lazy" width="880" height="880">
         </div>
-        <div class="feature-text">
+        <div class="page-text">
+          <p class="toki">よる</p>
           <h3>夜は、3行だけ日記</h3>
           <p>きょうの気分といっしょに、そっと記録。書けない夜は、書かなくていいよ。</p>
         </div>
       </article>
 
-      <article class="feature">
-        <div>
-          <div class="mock mock-dress">
-            <img class="mock-room" src="assets/room_starry.jpg?v=v3" alt="">
-            <img class="mock-mofu" src="assets/dress_strawhat.png?v=v3" alt="">
-            <div class="dress-row" aria-hidden="true">
-              <div class="slot"><img src="assets/dress_ribbon.png?v=v3" alt=""></div>
-              <div class="slot"><img src="assets/dress_crown.png?v=v3" alt=""></div>
-              <div class="slot"><img src="assets/dress_witchhat.png?v=v3" alt=""></div>
-            </div>
-          </div>
-          <div class="theme-thumbs" aria-hidden="true">
-            <img src="assets/room_forest.jpg?v=v3" alt="">
-            <img src="assets/room_seaside.jpg?v=v3" alt="">
-            <img src="assets/room_washitsu.jpg?v=v3" alt="">
-            <img src="assets/room_starry.jpg?v=v3" alt="">
-          </div>
+      <article class="page reveal">
+        <div class="window-frame">
+          <img src="assets/scene_growth.jpg" alt="たまごとちびモフとおとなモフが並ぶ部屋" loading="lazy" width="880" height="880">
         </div>
-        <div class="feature-text">
+        <div class="page-text">
+          <p class="toki">まいにち</p>
+          <h3>できた日だけで、ちゃんと育つ</h3>
+          <p>たまごから、おとなモフまで。連続記録もノルマもありません。</p>
+          <p class="bubble">できない日が あっても、<br>ぼくは ここにいるよ</p>
+        </div>
+      </article>
+
+      <article class="page reveal">
+        <div class="window-frame">
+          <img src="assets/scene_strawhat.jpg" alt="麦わら帽子をかぶったモフ" loading="lazy" width="880" height="880">
+        </div>
+        <div class="page-text">
+          <p class="toki">すきな日</p>
           <h3>きみだけのモフに、きみだけの部屋</h3>
           <p>育てた子は、着せ替えと部屋テーマで自分好みに飾れます。</p>
+          <div class="dress-row" aria-hidden="true">
+            <span class="slot"><img src="assets/dress_ribbon.png?v=v3" alt="" loading="lazy"></span>
+            <span class="slot"><img src="assets/dress_crown.png?v=v3" alt="" loading="lazy"></span>
+            <span class="slot"><img src="assets/dress_witchhat.png?v=v3" alt="" loading="lazy"></span>
+          </div>
+          <div class="theme-thumbs" aria-hidden="true">
+            <img src="assets/room_forest.jpg?v=v3" alt="" loading="lazy">
+            <img src="assets/room_seaside.jpg?v=v3" alt="" loading="lazy">
+            <img src="assets/room_washitsu.jpg?v=v3" alt="" loading="lazy">
+            <img src="assets/room_starry.jpg?v=v3" alt="" loading="lazy">
+          </div>
         </div>
       </article>
 
@@ -218,7 +211,9 @@
 
     <!-- もう一度フォーム -->
     <section class="cta-again">
-      <img src="assets/mofu_hero.png?v=v3" alt="" class="breathing">
+      <div class="window-frame small">
+        <img src="assets/scene_sparkle.jpg" alt="星の光につつまれるモフ" loading="lazy" width="640" height="640">
+      </div>
       <h2>リリースの日を、いっしょに待ちませんか</h2>
       <form class="signup" data-signup>
         <div class="signup-row">
@@ -226,7 +221,7 @@
           <input id="email-2" type="email" name="email" placeholder="メールアドレス" autocomplete="email" required>
           <button type="submit">やさしくお知らせを受けとる</button>
         </div>
-        <p class="signup-note">メールはリリースのお知らせにだけ使います。</p>
+        <p class="signup-note">リリースの日に、メールを1通。それ以外には使いません。</p>
         <p class="signup-status" role="status" aria-live="polite"></p>
       </form>
       <noscript><p class="signup-note">フォームの利用にはJavaScriptが必要です。動かないときは mofucare.app@gmail.com へ「お知らせ希望」とメールしてください。</p></noscript>
@@ -245,6 +240,21 @@
     <p class="copyright">© 2026 モフケア</p>
   </footer>
 
+  <script>
+    // ゆっくり現れる演出(動きを減らす設定の人には出さない)
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('shown'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
   <script src="main.js"></script>
   <script data-goatcounter="https://mofucare.goatcounter.com/count" async src="vendor-count.js"></script>
 </body>
